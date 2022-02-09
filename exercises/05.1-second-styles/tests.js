@@ -3,6 +3,7 @@ import { WhatToRender } from "./app.jsx";
 import jsxToString from "jsx-to-string";
 import renderer from "react-test-renderer";
 
+
 jest.mock("react-dom", () => ({ render: jest.fn() }));
 
 test("ReactDOM needs to be called once", () => {
@@ -11,6 +12,9 @@ test("ReactDOM needs to be called once", () => {
 
 test("The component Badge should return the exact HTML", () => {
   const tree = renderer.create(ReactDOM.render.mock.calls[0][0]).toJSON();
+
+  const screen = document.querySelector('#myDiv');
+  expect(screen).toBe(true)
 
   // expect(tree).toMatchInlineSnapshot(`
   // <button
